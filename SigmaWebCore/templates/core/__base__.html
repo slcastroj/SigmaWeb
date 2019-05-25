@@ -36,27 +36,37 @@
                     <li class="nav-item mx-2">
                         <a href="{% url "index" %}" class="nav-link">Inicio</a>
                     </li>
-                    <li class="nav-item mx-2 mr-md-5">
+                    <li class="nav-item mx-2 ">
                         <a href="{% url "servicios" %}" class="nav-link">Servicios</a>
                     </li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item mx-2 mr-md-0 d-none d-sm-inline">
+                        <a href="{% url "inicio_sesion" %}" class="nav-link">
+                            <i class="far fa-user fa-lg"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item d-sm-none mx-2">
+                        <hr>
+                        <a href="{% url "inicio_sesion" %}" class="nav-link">Iniciar sesión</a>
+                    </li>
+                    {% else %}
                     <li class="nav-item mx-2 mr-md-0 dropdown d-none d-sm-inline">
-                        <a class="nav-link dropdown-toggle" href="#" id="ddUsuario" role="button" data-toggle="dropdown">
+                        <a class="nav-link dropdown-toggle" id="ddUsuario" role="button" data-toggle="dropdown">
                             <i class="far fa-user fa-lg"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right">
-                            <a href="{% url "inicio_sesion" %}" class="dropdown-item">Iniciar sesión</a>
-                            <a href="{% url "registro" %}" class="dropdown-item">Registrarse</a>
+                            <a href="{% url "perfil" %}" class="dropdown-item">Perfil</a>
+                            <a href="{% url "historial" %}" class="dropdown-item">Solicitudes</a>
+                            <a href="{% url "cierre_sesion" %}" class="dropdown-item">Cerrar sesión</a>
                         </div>
                     </li>
-                    <div class="d-inline d-sm-none mx-2">
+                    <li class="nav-item d-sm-none mx-2">
                         <hr>
-                        <li class="nav-item">
-                            <a href="{% url "inicio_sesion" %}" class="nav-link">Iniciar sesión</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{% url "registro" %}" class="nav-link">Registrarse</a>
-                        </li>
-                    </div>
+                        <a href="{% url "perfil" %}" class="nav-link">Perfil</a>
+                        <a href="{% url "historial" %}" class="nav-link">Solicitudes</a>
+                        <a href="{% url "cierre_sesion" %}" class="nav-link">Cerrar sesión</a>
+                    </li>
+                    {% endif %}
                 </ul>
             </div>
         </nav>

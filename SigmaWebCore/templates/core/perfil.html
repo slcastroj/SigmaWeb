@@ -1,0 +1,99 @@
+{% extends 'core/__base__.html' %}
+
+{% block custom_head %}
+<title>OKCasa - Perfil de usuario</title>
+
+<style>
+footer {
+    position: absolute;
+    bottom:0;
+}
+</style>
+{% endblock custom_head %}
+
+{% block main %}
+<div class="row p-4 p-md-5">
+    <div id="datos-usuario" class="col-12 col-md-8 col-lg-6 p-3 pr-md-4 mb-3">
+        <h1 class="mb-5">Datos de usuario</h1>
+
+        <div class="ml-md-3 row">
+            <div class="col-12 col-md-6">
+                <h5>Rut:</h5>
+                <p class="ml-3">20.054.669-5</p>
+            </div>
+            <div class="col-12 col-md-6">
+                <h5>Nombre completo:</h5>
+                <p class="ml-3">Sergio Leonardo Castro Jiménez</p>
+            </div>
+            <div class="col-12 col-md-6">
+                <h5>Correo electrónico:</h5>
+                <p class="ml-3">sl.castroj@gmail.com</p>
+            </div>
+            
+        </div>
+    </div>
+    <div id="otros" class="col-12 col-md-4 px-4 mt-3 pr-md-4 mb-3">
+        <h3 class="mb-3 text-muted">Otros</h3>
+
+        <button type="button" data-toggle="modal" data-target="#modalCorreo" role="button" class="mb-3 ml-3 btn btn-outline-danger"><i class="far fa-envelope mr-3"></i> Cambiar correo</button>
+        <div class="modal fade" id="modalCorreo" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Cambiar correo</h5>
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="txtCorreo">Correo nuevo:</label>
+                            <input type="email" id="txtCorreo" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="txtConfirmarCorreo">Confirmar correo nuevo:</label>
+                            <input type="email" id="txtConfirmarCorreo" class="form-control">
+                        </div>
+                    </div>
+                    <div class="modal-footer text-right">
+                        <button class="btn text-danger" data-dismiss="modal">Cancelar</button>
+                        <button class="btn btn-danger">Modificar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button type="button" data-toggle="modal" data-target="#modalContrasena" role="button" class="ml-3 btn btn-outline-danger"><i class="fas fa-key mr-3"></i> Cambiar contraseña</button>
+        <div class="modal fade" id="modalContrasena" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Cambiar contraseña</h5>
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="txtContrasenaActual">Contraseña actual:</label>
+                            <input type="password" id="txtContrasenaActual" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="txtContrasena">Contraseña nueva:</label>
+                            <input type="password" id="txtContrasena" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="txtConfirmarContrasena">Confirmar contraseña nueva:</label>
+                            <input type="password" id="txtConfirmarContrasena" class="form-control">
+                        </div>
+                    </div>
+                    <div class="modal-footer text-right">
+                        <button class="btn text-danger" data-dismiss="modal">Cancelar</button>
+                        <button class="btn btn-danger">Modificar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock main %}

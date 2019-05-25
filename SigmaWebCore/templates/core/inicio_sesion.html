@@ -1,1 +1,61 @@
 {% extends "core/__base__.html" %}
+
+{% block custom_head %}
+<title>OKCasa - Iniciar sesión</title>
+{% endblock custom_head %}
+
+{% block main %}
+<div class="row p-4 p-md-5">
+    <div id="inicio-sesion" class="col-12 col-md-7 p-3 pr-md-4 mb-3">
+        <h2 class="mb-5">Registrarse</h2>
+        <form action="" class="row ml-md-2">
+            <div class="form-group col-12">
+                <label for="txtRegRut">RUT:</label>
+                <input type="text" id="txtRegRut" class="form-control">
+            </div>
+            <div class="form-group col-12">
+                <label for="txtRegNombre">Nombre completo:</label>
+                <input type="text" id="txtRegNombre" class="form-control">
+            </div>
+            <div class="form-group col-12">
+                <label for="txtRegCorreo">Correo electrónico:</label>
+                <input type="email" id="txtRegCorreo" class="form-control">
+            </div>
+            <div class="form-group col-12 col-md-6">
+                <label for="txtRegContrasena">Contraseña:</label>
+                <input type="password" id="txtRegContrasena" class="form-control">
+                <small class="form-text text-muted">Mínimo 8 carácteres, 2 letras y 2 números</small>
+            </div>
+            <div class="form-group col-12 col-md-6">
+                <label for="txtRegContrasena2">Confirmar contraseña:</label>
+                <input type="password" id="txtRegContrasena2" class="form-control">
+            </div>
+            <div class="col-12 text-right">
+                <button class="btn btn-outline-danger mr-3">Limpiar</button>
+                <button class="btn btn-primary" type="submit">Registrar</button>
+            </div>
+        </form>
+    </div>
+    <div class="col-1 d-none d-md-block">
+        <div class="mt-5 mx-auto" style="height: 400px; width: 1px; background-color: lightgray"></div>
+    </div>
+    <div id="inicio-sesion" class="col-12 col-md-4 p-3 pr-md-4 mb-3">
+        <h2 class="mb-5">Iniciar sesión</h2>
+
+        <form action="" class="row ml-md-2">
+            <div class="form-group col-12">
+                <label for="txtLogRut">RUT:</label>
+                <input type="text" id="txtLogRut" class="form-control">
+            </div>
+            <div class="form-group col-12">
+                <label for="txtLogContrasena">Contraseña:</label>
+                <input type="password" id="txtLogContrasena" class="form-control">
+            </div>
+            <div class="col-12 text-right">
+                <small><a href="" class="text-danger mr-3">Olvidé mi contraseña</a></small>
+                <button class="btn btn-primary" type="submit">Iniciar</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock main %}
