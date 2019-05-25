@@ -1,0 +1,66 @@
+{% extends "core/__base__.html" %}
+
+{% block custom_head %}
+<title>OKCasa - Servicios</title>
+{% endblock custom_head %}
+
+{% block main %}
+<div class="row p-4 p-md-5">
+    <div id="descripcion" class="col-12 p-3 mb-3">
+        <h1 class="mb-4">Nuestros Servicios</h1>
+        <p class="text-justify">En OKCasa queremos asegurarnos que recibas tu vivienda en perfectas condiciones, para esto ofrecemos una gama de servicios asesorados por expertos en su campo. A continuación puedes ver y solicitar una inspección por parte de nuestros profesionales, que responderan a la brevedad.</p>
+        <p class="text-justify mb-5 alert alert-info" role="alert">La comprobación de solicitud se realiza dentro de 3 días hábiles. De ser aprobada, la inspección inicial se realizaría dentro de 15 días hábiles a partir de la fecha aprobada.</p>
+
+        <div class="row">
+            <div class="col-12 col-lg-6 px-md-5 mb-5">
+                <h3><a href="#collapseInstalaciones" data-toggle="collapse" role="button"><i class="fas fa-angle-down mr-3"></i>Verificación instalaciones</a></h3>
+                <div class="collapse show" id="collapseInstalaciones">
+                    <div class="card card-body ml-0 ml-md-3">
+                        <p class="text-justify mb-4">Mediante la verificación de instalaciones puedes ver si tu casa cumple los requerimientos arquitectónicos prometidos, así como los estándares de calidad y seguridad del mercado actuales.</p>
+                        {% if user.is_authenticated %}
+                        <a href="{% url "solicitud" id=0 %}" class="btn btn-primary mb-2">Solicitar servicio</a>
+                        {% endif %}
+                        <a href="{% url "cotizacion" id=0 %}" class="btn btn-outline-primary">Cotizar servicio</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6 px-md-5 mb-5">
+                <h3><a href="#collapseMedicion" data-toggle="collapse" role="button"><i class="fas fa-angle-down mr-3"></i>Medición vivienda</a></h3>
+                <div class="collapse show" id="collapseMedicion">
+                    <div class="card card-body ml-0 ml-md-3">
+                        <p class="text-justify mb-4">La medición de vivienda te permite asegurar que tu casa cumple el tamaño prometido, así como la estimación de espacios disponibles para ti y tu familia.</p>
+                        {% if user.is_authenticated %}
+                        <a href="{% url "solicitud" id=1 %}" class="btn btn-primary mb-2">Solicitar servicio</a>
+                        {% endif %}
+                        <a href="{% url "cotizacion" id=1 %}" class="btn btn-outline-primary">Cotizar servicio</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6 px-md-5 mb-5">
+                <h3><a href="#collapseInfraestructura" data-toggle="collapse" role="button"><i class="fas fa-angle-down mr-3"></i>Inspección Infraestructura</a></h3>
+                <div class="collapse show" id="collapseInfraestructura">
+                    <div class="card card-body ml-0 ml-md-3">
+                        <p class="text-justify mb-4">La inspección de infraestructura asegura que tu vivienda cumple todos los estándares de instalación de luminaria, agua potable y tuberías de gas, para que te sientas seguro en tu nuevo hogar.</p>
+                        {% if user.is_authenticated %}
+                        <a href="{% url "solicitud" id=2 %}" class="btn btn-primary mb-2">Solicitar servicio</a>
+                        {% endif %}
+                        <a href="{% url "cotizacion" id=2 %}" class="btn btn-outline-primary">Cotizar servicio</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-lg-6 px-md-5 mb-5">
+                <h3><a href="#collapseTermografia" data-toggle="collapse" role="button"><i class="fas fa-angle-down mr-3"></i>Termografía</a></h3>
+                <div class="collapse show" id="collapseTermografia">
+                    <div class="card card-body ml-0 ml-md-3">
+                        <p class="text-justify mb-4">A través de la termografía prometemos comodidad , entregando espacios con una temperatura de acorde a las necesidades de ti y tus seres queridos, en todo momento.</p>
+                        {% if user.is_authenticated %}
+                        <a href="{% url "solicitud" id=0 %}" class="btn btn-primary mb-2">Solicitar servicio</a>
+                        {% endif %}
+                        <a href="{% url "cotizacion" id=0 %}" class="btn btn-outline-primary">Cotizar servicio</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock main %}

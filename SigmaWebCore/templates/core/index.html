@@ -1,0 +1,37 @@
+{% extends "core/__base__.html" %}
+
+{% block custom_head %}
+<title>OKCasa - Inicio</title>
+{% endblock custom_head %}
+
+{% block main %}
+<div class="row p-4 p-md-5">
+    <div id="descripcion" class="col-12 col-md-8 p-3 pr-md-4 mb-3">
+        <h1 class="mb-4"><i class="fas fa-home mr-3 fa-md"></i>Nuestro Objetivo</h1>
+        <p class="text-justify mb-5">En OKCasa somos expertos en servicios de inspección de vivienda, reconocidos en el mercado nacional por profesionales desde hace más de una década. Nuestra misión es brindar confianza y seguridad a nuestros clientes al garantizar que recibas tu vivienda propia en perfectas condiciones para ti y tu familia.</p>
+        
+        <h4 class="mb-3">Comencemos</h4>
+
+        <h6 class="text-primary">¿Nuevo por aquí?</h6>
+        <p class="ml-md-3 text-justify mb-4">Puedes presionar el ícono de usuario en el encabezado del sitio para navegar a la página de <a href="{% url "registro"%}">registro</a>. Aquí podrás ingresar tus datos personales para el perfil de consulta y así será más fácil para ti gestionar las solicitudes y para nosotros, ayudarte.</p>
+
+        <h6 class="text-primary">¿Ahora qué?</h6>
+        <p class="ml-md-3 text-justify">Puedes consultar las tarifas bases de los servicios ofrecidos en la página <a href="{% url "servicios"%}">servicios</a>; desde aquí realizar una solicitud de servicio que será revisada y respondida por uno de nuestros agentes.</p>
+        <p class="ml-md-3 text-justify">También puedes visitar y cambiar los datos de tu perfil, además de ver el seguimiento de tus solicitudes pendientes y el historial de aquellas completadas previamente.</p>
+    </div>
+    <div id="etc" class="col-12 col-md-4 p-3 pl-md-4 mt-md-5 mb-3">
+        <h3 class="mb-4 text-secondary">Ubicación</h3>
+        <div class="border rounded text-center row mb-4" style="height:250px">
+            <div class="my-auto col-12">
+                <i class="fas fa-map-marker-alt fa-6x"></i>
+            </div>
+        </div>
+
+        <h3 class="mb-4 text-secondary">Contacto</h3>
+        <p>
+            Correo: <a href="mailto:agente@okcasa.cl">agente@okcasa.cl</a><br>
+            Tel. Ejecutivo: <a href="tel:+569-5249-82-77">+569 8923 42 31</a>
+        </p>
+    </div>
+</div>
+{% endblock main %}
