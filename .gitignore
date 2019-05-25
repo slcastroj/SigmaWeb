@@ -126,3 +126,5 @@ Scripts/
 include/
 tcl/
 python/
+
+.vscode/settings.json
