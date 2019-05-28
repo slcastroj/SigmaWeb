@@ -1,1 +1,80 @@
 {% extends "core/__base__.html" %}
+
+{% block custom_head %}
+<title>OKCasa - Historial</title>
+{% endblock custom_head %}
+
+{% block main %}
+<div class="row p-4 p-md-5 mb-5">
+    <div id="historial" class="col-12 p-3 pr-md-4 mb-3">
+        <h1 class="mb-5">Historial de solicitudes</h1>
+        <form action="" class="row">
+            <div class="form-group col-12 col-lg-3">
+                <label for="cbEstado" class="mr-3">Estado:</label>
+                <select id="cbEstado" class="form-control">
+                    {% for estado in estados %}
+                    <option value="{{estado.id}}">{{estado.nombre}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="form-group col-12 col-lg-3">
+                <label for="cbOrden" class="mr-3">Orden:</label>
+                <select id="cbOrden" class="form-control">
+                    {% for orden in ordenes %}
+                    <option value="{{orden.id}}">{{orden.nombre}}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </form>
+
+        <div class="col-12 p-3">
+            {% for solicitud in solicitudes %}
+            <div class="px-3 py-2 rounded border border-primary row mb-4">
+                <div class="col-12 col-md-4">
+                    <h5>{{solicitud.nombre}}</h5>
+                    <small class="text-muted">Encargado: {{solicitud.encargado}}</small>
+
+                    <p class="mt-3 mb-2"><b>Dirección:</b> {{solicitud.direccion}}</p>
+                    <p><b>Comuna:</b> {{solicitud.comuna}}</p>
+                </div>
+                <div class="card px-3 py-2 col-12 col-md-8">
+                    <h6 class="ml-0 text-primary">Progreso</h6>
+                    <div class="ml-0 ml-md-3">
+                        <p class="mb-2"><b>Creado:</b> {% firstof solicitud.fecha_creacion "No ha sido creado"%}</p>
+                        <p class="mb-2"><b>Aprobado:</b> {% firstof solicitud.fecha_aprobacion "No ha sido aprobado"%}</p>
+                        <p class="mb-2"><b>Visitado:</b> {% firstof solicitud.fecha_inspeccion "No ha sido visitado"%}</p>
+                        <p class="mb-2"><b>Reparado:</b> {% firstof solicitud.fecha_reparacion "No ha sido reparado"%}</p>
+                        <p class="mb-2"><b>Finalizado:</b> {% firstof solicitud.fecha_cierre "No ha sido finalizado"%}</p>
+                    </div>
+                </div>
+                {% if not solicitud.fecha_cierre and not solicitud.fecha_reparacion %}
+                <button type="button" data-toggle="modal" data-target="#modalCancelar" role="button" class="btn btn-sm text-danger">Cancelar solicitud</button>
+                {% endif %}
+            </div>
+            {% endfor %}
+            <div class="modal fade" id="modalCancelar" tabindex="-1" role="dialog">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Cancelar solicitud</h5>
+                            <button type="button" class="close" data-dismiss="modal">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p class="ml-3">¿Estás seguro de cancelar esta solicitud?</p>
+                            <p class="alert alert-warning text-justify">Solo puedes cancelar un máximo de 2 solicitudes dentro de un plazo de 6 meses. Si superas este límite serás penalizado y tendrás que contactarte con un agente para levantar la penalización.</p>
+                            <p class="alert alert-danger">Los pagos pendientes continuarán siendo aplicados.</p>
+                        </div>
+                        <div class="modal-footer text-right">
+                            <button class="btn text-danger" data-dismiss="modal">Cancelar</button>
+                            <button class="btn btn-danger">Confirmar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock main %}

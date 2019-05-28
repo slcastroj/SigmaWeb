@@ -5,21 +5,29 @@
 {% endblock custom_head %}
 
 {% block main %}
-<div class="row p-4 p-md-5">
+<div class="row p-4 p-md-5 mb-5">
     <div id="inicio-sesion" class="col-12 col-md-7 p-3 pr-md-4 mb-3">
         <h2 class="mb-5">Registrarse</h2>
         <form action="" class="row ml-md-2">
-            <div class="form-group col-12">
+            <div class="form-group col-12 col-md-6">
                 <label for="txtRegRut">RUT:</label>
                 <input type="text" id="txtRegRut" class="form-control">
+            </div>
+            <div class="form-group col-12 col-md-6">
+                <label for="txtRegFecha">Fecha nacimiento:</label>
+                <input type="date" id="txtRegFecha" class="form-control">
             </div>
             <div class="form-group col-12">
                 <label for="txtRegNombre">Nombre completo:</label>
                 <input type="text" id="txtRegNombre" class="form-control">
             </div>
-            <div class="form-group col-12">
+            <div class="form-group col-12 col-md-6">
                 <label for="txtRegCorreo">Correo electrónico:</label>
                 <input type="email" id="txtRegCorreo" class="form-control">
+            </div>
+            <div class="form-group col-12 col-md-6">
+                <label for="txtRegTelefono">Teléfono:</label>
+                <input type="tel" id="txtRegTelefono" class="form-control">
             </div>
             <div class="form-group col-12 col-md-6">
                 <label for="txtRegContrasena">Contraseña:</label>

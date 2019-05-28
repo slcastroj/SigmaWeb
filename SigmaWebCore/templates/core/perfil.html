@@ -2,32 +2,25 @@
 
 {% block custom_head %}
 <title>OKCasa - Perfil de usuario</title>
-
-<style>
-footer {
-    position: absolute;
-    bottom:0;
-}
-</style>
 {% endblock custom_head %}
 
 {% block main %}
-<div class="row p-4 p-md-5">
+<div class="row p-4 p-md-5 mb-5">
     <div id="datos-usuario" class="col-12 col-md-8 col-lg-6 p-3 pr-md-4 mb-3">
         <h1 class="mb-5">Datos de usuario</h1>
 
         <div class="ml-md-3 row">
             <div class="col-12 col-md-6">
                 <h5>Rut:</h5>
-                <p class="ml-3">20.054.669-5</p>
+                <p class="ml-3">{{rut}}</p>
             </div>
             <div class="col-12 col-md-6">
                 <h5>Nombre completo:</h5>
-                <p class="ml-3">Sergio Leonardo Castro Jiménez</p>
+                <p class="ml-3">{{nombre}}</p>
             </div>
             <div class="col-12 col-md-6">
                 <h5>Correo electrónico:</h5>
-                <p class="ml-3">sl.castroj@gmail.com</p>
+                <p class="ml-3">{{email}}</p>
             </div>
             
         </div>

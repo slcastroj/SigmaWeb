@@ -1,1 +1,41 @@
 {% extends "core/__base__.html" %}
+
+{% block custom_head %}
+<title>OKCasa - Solicitud de servicio</title>
+{% endblock custom_head %}
+
+{% block main %}
+<div class="row p-4 p-md-5 mb-5">
+    <h2 class="col-12">Solicitud de servicio de inspección</h2>
+    <div id="condiciones" class="col-12 col-md-6 p-3 pr-md-4 mb-3">
+        
+        <p class="text-justify">A continuación se muestran los detalles del servicio que está por solicitar.</p>
+
+        <p class="alert alert-warning text-justify">Una vez solicitado, cualquier cancelación posterior a 48 horas será registrada. Si se realiza una segunda incidencia dentro de un plazo de 6 meses se pondrá en suspensión la contratación de servicios por un plazo de 1 semana y se deberá constatar la situación de forma personal con un agente.</p>
+        <p class="alert alert-info mb-4">Todas las condiciones de servicio, contratación e inspección se detallan <a href="">aquí</a></p>
+
+        <label for="chkCondiciones" class="checkbox-inline">
+            <input type="checkbox" id="chkCondiciones" class="mx-1 mx-md-3"> He leído y estoy de acuerdo con los términos y condiciones dispuestos.
+        </label>
+    </div>
+    <div id="detalles" class="col-12 col-md-6 p-3 pr-md-4">
+        <h4 class="text-primary">Detalles</h4>
+
+        <div class="ml-0 ml-md-3">
+            <p class="mb-0"><b>Rut: </b>{{usuario.rut}}</p>
+            <p class="mb-0"><b>Nombre completo: </b>{{usuario.nombre}}</p>
+            <p class="mb-0"><b>Correo electrónico: </b>{{usuario.email}}</p>
+            <p class="mb-0"><b>Teléfono: </b>{{usuario.fono}}</p>
+            <p><b>Tipo servicio: </b>{{servicio}}</p>
+
+            <form action="">
+                <label for="txtDireccion">Dirección vivienda:</label>
+                <input type="text" id="txtDireccion" class="form-control">
+                <div class="text-right mt-3">
+                    <input type="submit" value="Enviar" class="btn btn-primary">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock main %}
