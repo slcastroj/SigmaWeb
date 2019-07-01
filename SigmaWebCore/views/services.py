@@ -14,12 +14,14 @@ soli = Solicitud()
 def solicitud(request):
     if not user.IsLoged():
         return redirect("inicio_sesion")
-    s = requests.get(urlBase + 'servicio/'+request.GET['id'],headers=headers)
-    context = {
-        "usuario":user,
-        "solicitud":soli,
-        "servicio":s.json()
-    }
+    context = {}
+    if request.method == 'GET':
+        s = requests.get(urlBase + 'servicio/'+request.GET['id'],headers=headers)
+        context = {
+            "usuario":user,
+            "solicitud":soli,
+            "servicio":s.json()
+        }
     if request.method == 'POST':
         o = request.POST
         obj = {
@@ -28,7 +30,7 @@ def solicitud(request):
             'id_estado':1,
             'id_servicio':o['id'],
             'id_equipo':1,
-            'usuario':user.rut
+            'rut':user.rut
         }
         print(obj)
         r = requests.post(urlBase + 'solicitud/',headers=headers,data=json.dumps(obj))

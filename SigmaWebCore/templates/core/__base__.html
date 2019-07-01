@@ -39,7 +39,7 @@
                     <li class="nav-item mx-2 ">
                         <a href="{% url "servicios" %}" class="nav-link">Servicios</a>
                     </li>
-                    {% if user.is_authenticated %}
+                    {% if not usuario.loged %}
                     <li class="nav-item mx-2 mr-md-0 d-none d-sm-inline">
                         <a href="{% url "inicio_sesion" %}" class="nav-link">
                             <i class="far fa-user fa-lg"></i>

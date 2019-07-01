@@ -27,7 +27,7 @@
             <p class="mb-0"><b>Correo electrónico: </b>{{usuario.email}}</p>
             <p><b>Servicio: </b>{{servicio.nombre}}</p>
 
-            <form action="" method="POST">
+            <form action="/core/solicitud/" method="POST">
                 {% csrf_token %}
                 <label for="txtDireccion">Dirección vivienda:</label>
                 <input type="text" name="direccion" id="txtDireccion" class="form-control">
