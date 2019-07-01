@@ -1,6 +1,10 @@
 from django.shortcuts import render, redirect
 from SigmaWebCore.data.models import User
 from SigmaWebCore.data.repositories import UserRepository
+import requests
+import json
+
+urlBase = 'http://localhost:2115/ok-casa/'
 
 repo = UserRepository()
 repo.datasrc = [
