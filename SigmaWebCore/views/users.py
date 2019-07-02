@@ -17,15 +17,18 @@ def inicio_sesion(request):
         u = requests.get(urlBase + 'usuario/'+request.POST['rut'],headers=headers)
         if u.status_code == 200:
             us = u.json()
-            if us['clave'] == request.POST['clave']:
-                user.clave = us['clave']
-                user.rut = us['rut']
-                user.nombre = us['nombre']
-                user.email = us['email']
-                user.nacimiento = us['fecha_nac']
-                user.id_tipo = us['id_tipo']
-                user.LogIn()
-            return redirect("index")
+            try:
+                if us['clave'] == request.POST['clave']:
+                    user.clave = us['clave']
+                    user.rut = us['rut']
+                    user.nombre = us['nombre']
+                    user.email = us['email']
+                    user.nacimiento = us['fecha_nac']
+                    user.id_tipo = us['id_tipo']
+                    user.LogIn()
+                return redirect("index")
+            except:
+                return render(request, "core/inicio_sesion.html")
     return render(request, "core/inicio_sesion.html")
 
 def perfil(request):

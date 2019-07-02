@@ -27,8 +27,10 @@ def solicitud(request):
             'creacion':time.strftime("%d/%m/%y"),
             'id_estado':1,
             'id_servicio':o['id'],
-            'rut':user.rut
+            'id_equipo':1,
+            'usuario':user.rut
         }
+        print(obj)
         r = requests.post(urlBase + 'solicitud/',headers=headers,data=json.dumps(obj))
         if r.status_code == 200:
             return redirect("historial")
