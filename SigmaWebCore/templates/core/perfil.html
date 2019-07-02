@@ -31,7 +31,8 @@
         <button type="button" data-toggle="modal" data-target="#modalCorreo" role="button" class="mb-3 ml-3 btn btn-outline-danger"><i class="far fa-envelope mr-3"></i> Cambiar correo</button>
         <div class="modal fade" id="modalCorreo" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
-                <div class="modal-content">
+                <form method="POST" action="/core/cambiar-correo/" class="modal-content">
+                    {% csrf_token %}
                     <div class="modal-header">
                         <h5 class="modal-title">Cambiar correo</h5>
                         <button type="button" class="close" data-dismiss="modal">
@@ -41,25 +42,26 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="txtCorreo">Correo nuevo:</label>
-                            <input type="email" id="txtCorreo" class="form-control">
+                            <input name="email" type="email" id="txtCorreo" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="txtConfirmarCorreo">Confirmar correo nuevo:</label>
-                            <input type="email" id="txtConfirmarCorreo" class="form-control">
+                            <input name="email2" type="email" id="txtConfirmarCorreo" class="form-control">
                         </div>
                     </div>
                     <div class="modal-footer text-right">
                         <button class="btn text-danger" data-dismiss="modal">Cancelar</button>
                         <button class="btn btn-danger">Modificar</button>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
 
         <button type="button" data-toggle="modal" data-target="#modalContrasena" role="button" class="ml-3 btn btn-outline-danger"><i class="fas fa-key mr-3"></i> Cambiar contraseña</button>
         <div class="modal fade" id="modalContrasena" tabindex="-1" role="dialog">
             <div class="modal-dialog" role="document">
-                <div class="modal-content">
+                <form method="POST" action="/core/cambiar-clave/" class="modal-content">
+                    {% csrf_token %}
                     <div class="modal-header">
                         <h5 class="modal-title">Cambiar contraseña</h5>
                         <button type="button" class="close" data-dismiss="modal">
@@ -69,22 +71,22 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="txtContrasenaActual">Contraseña actual:</label>
-                            <input type="password" id="txtContrasenaActual" class="form-control">
+                            <input name="clavea" type="password" id="txtContrasenaActual" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="txtContrasena">Contraseña nueva:</label>
-                            <input type="password" id="txtContrasena" class="form-control">
+                            <input name="clave1" type="password" id="txtContrasena" class="form-control">
                         </div>
                         <div class="form-group">
                             <label for="txtConfirmarContrasena">Confirmar contraseña nueva:</label>
-                            <input type="password" id="txtConfirmarContrasena" class="form-control">
+                            <input name="clave2" type="password" id="txtConfirmarContrasena" class="form-control">
                         </div>
                     </div>
                     <div class="modal-footer text-right">
                         <button class="btn text-danger" data-dismiss="modal">Cancelar</button>
                         <button class="btn btn-danger">Modificar</button>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </div>

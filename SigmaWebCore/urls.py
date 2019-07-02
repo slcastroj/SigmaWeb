@@ -11,4 +11,7 @@ urlpatterns = [
     path("cierre_sesion/", users.cierre_sesion, name="cierre_sesion"),
     path("solicitud", services.solicitud, name="solicitud"),
     path("historial/", services.historial, name="historial"),
+    path("registrar/", users.registrar, name="registrar"),
+    path("cambiar-correo/", users.email, name="email"),
+    path("cambiar-clave/", users.clave, name="clave"),
 ]

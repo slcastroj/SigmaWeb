@@ -35,16 +35,29 @@
                     <small class="text-muted">Encargado: {{solicitud.encargado}}</small>
 
                     <p class="mt-3 mb-2"><b>Dirección:</b> {{solicitud.direccion}}</p>
-                    <p><b>Comuna:</b> {{solicitud.comuna}}</p>
+                    <p><b>Rut cliente:</b> {{solicitud.usuario}}</p>
                 </div>
                 <div class="card px-3 py-2 col-12 col-md-8">
                     <h6 class="ml-0 text-primary">Progreso</h6>
                     <div class="ml-0 ml-md-3">
-                        <p class="mb-2"><b>Creado:</b> {% firstof solicitud.fecha_creacion "No ha sido creado"%}</p>
-                        <p class="mb-2"><b>Aprobado:</b> {% firstof solicitud.fecha_aprobacion "No ha sido aprobado"%}</p>
-                        <p class="mb-2"><b>Visitado:</b> {% firstof solicitud.fecha_inspeccion "No ha sido visitado"%}</p>
-                        <p class="mb-2"><b>Reparado:</b> {% firstof solicitud.fecha_reparacion "No ha sido reparado"%}</p>
-                        <p class="mb-2"><b>Finalizado:</b> {% firstof solicitud.fecha_cierre "No ha sido finalizado"%}</p>
+                        <p class="mb-2"><b>Creado:</b> {% firstof solicitud.creacion "No ha sido creado"%}</p>
+                        <p class="mb-2"><b>Estado:</b> 
+                            {% for e in estados %}
+                                {% if e.id_estado == solicitud.id_estado %}
+                                    {{e.nombre}}
+                                {% endif %}
+                            {% endfor %}</p>
+                        <p class="mb-2"><b>Visitas:</b> 
+                            {% for i in inspecciones %}
+                                {%if i.id_solicitud == solicitud.id_solicitud %}
+                                    {{i.fecha_visita}} ,
+                                {% endif %}
+                            {% endfor %}
+                            {% if ins <= 0 %}
+                                Sin Inspecciones
+                            {% endif %}
+                        </p>
+                        <p class="mb-2"><b>Finalizado:</b> {% firstof solicitud.fin "No ha sido finalizado"%}</p>
                     </div>
                 </div>
                 {% if not solicitud.fecha_cierre and not solicitud.fecha_reparacion %}

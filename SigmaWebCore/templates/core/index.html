@@ -11,10 +11,10 @@
         <p class="text-justify mb-5">En OKCasa somos expertos en servicios de inspección de vivienda, reconocidos en el mercado nacional por profesionales desde hace más de una década. Nuestra misión es brindar confianza y seguridad a nuestros clientes al garantizar que recibas tu vivienda propia en perfectas condiciones para ti y tu familia.</p>
         
         <h4 class="mb-3">Comencemos</h4>
-
+        {% if not usuario.loged %}
         <h6 class="text-primary">¿Nuevo por aquí?</h6>
         <p class="ml-md-3 text-justify mb-4">Puedes presionar el ícono de usuario en el encabezado del sitio para navegar a la página de <a href="{% url "inicio_sesion"%}">inicio de sesión</a>. Aquí podrás ingresar tus datos personales para registrar perfil de consulta y así será más fácil para ti gestionar las solicitudes y para nosotros, ayudarte.</p>
-
+        {% endif %}
         <h6 class="text-primary">¿Ahora qué?</h6>
         <p class="ml-md-3 text-justify">Puedes consultar las tarifas bases de los servicios ofrecidos en la página <a href="{% url "servicios"%}">servicios</a>; desde aquí realizar una solicitud de servicio que será revisada y respondida por uno de nuestros agentes.</p>
         <p class="ml-md-3 text-justify">También puedes visitar y cambiar los datos de tu perfil, además de ver el seguimiento de tus solicitudes pendientes y el historial de aquellas completadas previamente.</p>
