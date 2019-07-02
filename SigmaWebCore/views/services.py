@@ -1,20 +1,37 @@
 from django.shortcuts import render, redirect
-from SigmaWebCore.data.models import User
+from SigmaWebCore.data.models import User, Solicitud
 from SigmaWebCore.data.repositories import UserRepository
 from .users import GetUser
+import time
 import requests
 import json
 
 urlBase = 'http://localhost:2115/ok-casa/'
+headers = {'content-type': 'application/json'}
 
 user = GetUser()
+soli = Solicitud()
 def solicitud(request):
     if not user.IsLoged():
         return redirect("inicio_sesion")
+    s = requests.get(urlBase + 'servicio/'+request.GET['id'],headers=headers)
     context = {
-        "usuario":{},
-        "solicitud":{}
+        "usuario":user,
+        "solicitud":soli,
+        "servicio":s.json()
     }
+    if request.method == 'POST':
+        o = request.POST
+        obj = {
+            'direccion':o['direccion'],
+            'creacion':time.strftime("%d/%m/%y"),
+            'id_estado':1,
+            'id_servicio':o['id'],
+            'rut':user.rut
+        }
+        r = requests.post(urlBase + 'solicitud/',headers=headers,data=json.dumps(obj))
+        if r.status_code == 200:
+            return redirect("historial")
     return render(request, "core/solicitud.html", context)
 
 def historial(request):

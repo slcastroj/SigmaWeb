@@ -25,12 +25,13 @@
             <p class="mb-0"><b>Rut: </b>{{usuario.rut}}</p>
             <p class="mb-0"><b>Nombre completo: </b>{{usuario.nombre}}</p>
             <p class="mb-0"><b>Correo electrónico: </b>{{usuario.email}}</p>
-            <p class="mb-0"><b>Teléfono: </b>{{usuario.fono}}</p>
-            <p><b>Tipo servicio: </b>{{servicio}}</p>
+            <p><b>Servicio: </b>{{servicio.nombre}}</p>
 
-            <form action="">
+            <form action="" method="POST">
+                {% csrf_token %}
                 <label for="txtDireccion">Dirección vivienda:</label>
-                <input type="text" id="txtDireccion" class="form-control">
+                <input type="text" name="direccion" id="txtDireccion" class="form-control">
+                <input type="hidden" name="id" value="{{servicio.id_servicio}}">
                 <div class="text-right mt-3">
                     <input type="submit" value="Enviar" class="btn btn-primary">
                 </div>

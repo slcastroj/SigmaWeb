@@ -18,3 +18,22 @@ class User():
         return self.loged
     def LogIn(self):
         self.loged = True
+
+class Solicitud():
+    id_solicitud = None
+    direccion = None
+    creacion = None
+    fin = None
+    estado = None
+    servicio = None
+    equipo = None
+    rut = None
+    def Drop(self):
+        self.id_solicitud = None
+        self.direccion = None
+        self.creacion = None
+        self.fin = None
+        self.estado = None
+        self.servicio = None
+        self.equipo = None
+        self.rut = None
